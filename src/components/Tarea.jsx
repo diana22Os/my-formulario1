@@ -11,6 +11,7 @@ function Modal(props) {
         </div>
     )
 }
+
 export const Tarea=()=>{
     const [id, setId] = useState('')
     const [name, setName] = useState('')
@@ -64,10 +65,10 @@ export const Tarea=()=>{
 
     const handleSubmit = (event ) => {
         event.preventDefault();
-        if(id==''||name==''||career==''||imageUrl==''){
+        if(id===''||name===''||career===''||imageUrl===''){
             alert('These fields cannot be null')
         }else{
-            if(edit==false){
+            if(edit===false){
                 setAlumn([...alumn,{id:id,name:name,career:career,image:imageUrl}])
             }else{
                 alumn[indexToEdit]={...alumn[indexToEdit],id:id,name:name,career:career,image:imageUrl}
@@ -155,7 +156,7 @@ export const Tarea=()=>{
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.career}</td>
-                                <td><img src={item.image} width={"200px"} height={"100px"}/></td>
+                                <td><img src={item.image} className="foto" alt="foto"/></td>
                                 <td><button id={"buttonAdd"} onClick={()=>editElement(index)}>EDITAR</button></td>
                                 <td><button id={"buttonCancel"} onClick={()=>deleteElement(item.id)}>ELIMINAR</button></td>
                             </tr>
